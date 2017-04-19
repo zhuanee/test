@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+        targetNamespace="http://jw.nju.edu.cn/schema" 
+        xmlns:tns="http://jw.nju.edu.cn/schema"  
+        elementFormDefault="qualified">
+	
+	
+	
+	
+    
+
+    <simpleType name="课程编号类型">
+    	<restriction base="string">
+    		<length value="8"></length>
+    	</restriction>
+    </simpleType>
+    
+    <simpleType name="原课程编号类型">
+    	<restriction base="string">
+    		<length value="6"></length>
+    	</restriction>
+    </simpleType>
+    
+    <complexType name="教学周历类型">
+        <sequence minOccurs="1" maxOccurs="18">
+        <element name="周历" >
+         <complexType >
+           <sequence>
+            <element name='周次' type='int' />
+            <element name='教室' type='string' />
+            <element name='授课方式' type='string' />
+            <element name='主题' type='string' />
+           </sequence>
+         </complexType>
+        </element>
+        </sequence>
+    </complexType>
+    
+    <complexType name="课程信息类型">
+     <all>
+      <element name="原课程编号" type="tns:原课程编号类型"/>
+      <element name="课程编号" type="tns:课程编号类型"/>
+      <element name="课程名称" type="string" />
+      <element name="任课老师" type="string" />
+      <element name="上课时间以及地点" type="string" />
+      <element name="教学周历" type="tns:教学周历类型" />
+      <element name="考试时间" type="string" />
+      <element name="考试地点" type="string" />
+      <element name="课程备注" type="string" />
+     </all>
+    </complexType>
+    
+    <complexType name='课程简述类型'>
+     <all>
+      <element name="课程编号" type="tns:课程编号类型"/>
+      <element name="课程名称" type="string" />
+      <element name="任课老师" type="string" />
+     </all>
+    </complexType>
+</schema>
